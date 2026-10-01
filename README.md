@@ -24,3 +24,11 @@ Mã nguồn để chạy Exercise 10
 Chân PA4-PA15 điều khiển LED tượng trưng cho hướng 1-12h
 
 ---
+
+## Lab 2-Timer Interrupt and LED Scanning
+### Source
+main.c: Mã nguồn để chạy Exercise 8, Exercise 10  
+software_timer.c: quản lý các ngắt sử dụng software timer
+### Schematic
+Digital clock gồm 4 LED 7 đoạn scan với tần số 1Hz  
+LED Matrix hiển thị chữ A di chuyển hướng lên trên, chu kỳ 8s
