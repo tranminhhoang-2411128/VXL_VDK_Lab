@@ -28,6 +28,11 @@
 #define LED_ON GPIO_PIN_RESET
 #define LED_OFF GPIO_PIN_SET
 
+#define AUTOMATIC_MODE 0
+#define MANUAL_MODE_RED 1
+#define MANUAL_MODE_YELLOW 2
+#define MANUAL_MODE_GREEN 3
+
 extern int status;
 extern int counter;
 extern int NS_counter;

@@ -106,7 +106,7 @@ int main(void)
   {
     if (timer_flag[0] == 1){
     	switch (status) {
-			case 0:
+			case AUTOMATIC_MODE:
 		    	fsm_automatic_run();
 		    	int timer_duration = counter * 1000;
 		    	setTimer(0, timer_duration);
@@ -119,7 +119,7 @@ int main(void)
 		}
     }
 
-    if (timer_flag[1] == 1 && status == 0){
+    if (timer_flag[1] == 1 && status == AUTOMATIC_MODE){
     	if (NS_counter > 0){
     		NS_counter--;
     	}
@@ -138,7 +138,7 @@ int main(void)
     if (button_flag[0] == 1){
     	status = (status < 3)? (status + 1) : 0;
     	switch (status) {
-			case 0:
+			case AUTOMATIC_MODE:
 				fsm_automatic_init();
 				break;
 
@@ -159,12 +159,12 @@ int main(void)
 
     if (button_flag[2] == 1){
     	switch (status) {
-			case 1:
+			case MANUAL_MODE_RED:
 				EW_duration[0] = EW_counter;
 				NS_duration[2] = EW_duration[0] - NS_duration[1];
 				break;
 
-			case 2:
+			case MANUAL_MODE_YELLOW:
 				EW_duration[1] = EW_counter;
 				if (EW_duration[1] + EW_duration[2] > 99){
 					NS_duration[0] = 99;
@@ -174,7 +174,7 @@ int main(void)
 				}
 				break;
 
-			case 3:
+			case MANUAL_MODE_GREEN:
 				EW_duration[2] = EW_counter;
 				if (EW_duration[1] + EW_duration[2] > 99){
 					NS_duration[0] = 99;
